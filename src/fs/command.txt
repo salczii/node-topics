@@ -1,1 +1,1 @@
-create a file test2.txt
+delete the file tex.txt
