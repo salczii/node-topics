@@ -1,1 +1,1 @@
-delete the file tex.txt
+rename the file tex.txt to text.txt

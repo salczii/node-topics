@@ -53,10 +53,19 @@ const fs = require("fs/promises");
     }
   };
 
-  /** @TODO Implement this function */
+  let addedContent;
+
   const addToFile = async (path, content) => {
-    console.log(`Adding to ${path}...`);
-    console.log(`Content: to ${content}...`);
+    if (addedContent === content) return;
+    try {
+      const fileHandle = await fs.open(path, "a");
+      fileHandle.write(content);
+      addedContent = content;
+      console.log("The content was added successfully.");
+    } catch (e) {
+      console.log("An error occurred while removing the file: ");
+      console.log(e);
+    }
   };
 
   const commandFileHandler = await fs.open("./command.txt", "r");
